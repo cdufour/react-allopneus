@@ -7,8 +7,8 @@ du composant ProductList
 
 ***
 Créer et utiliser un composant fonctionnel StockLevel
-affichant un niveau de disponibilité d'un produit (utiliser un rect svg par exemple)
+affichant un niveau de disponibilité d'un produit sous forme graphique (utiliser un rect svg par exemple)
 3 niveaux: 
     low (entre 0 et 10), rouge
-    medium (entre 11 et 50)
-    high (supérieur à 50)
+    medium (entre 11 et 50), orange
+    high (supérieur à 50), vert
