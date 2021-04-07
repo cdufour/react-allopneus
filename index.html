@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro à Reactjs</title>
+</head>
+<body>
+    <h1>Intro à Reactjs</h1>
+
+    <div id="container">Container</div>
+    <div id="container2">Container 2</div>
+
+    <input id="input" type="text" />
+    
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+    <script>
+
+        const container = document.getElementById('container');
+        const container2 = document.getElementById('container2');
+        
+        const onClick = () => {
+            console.log('click');
+            container.innerText += 'hacked !';
+        }
+
+        container.addEventListener('click', onClick)
+
+        const e = React.createElement;
+
+        ReactDOM.render(
+            e('p', {}, 'Simple paragraphe'),
+            container2
+        )
+        
+    </script>
+
+</body>
+</html>
