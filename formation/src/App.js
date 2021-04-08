@@ -2,6 +2,9 @@ import CounterFunctional from './CounterFunctional';
 import Counter from './Counter';
 import RainbowContainer from './RainbowContainer';
 import ProductList from './products/ProductList';
+import DemoEffect from './products/DemoEffect';
+import {useSelector, useDispatch} from 'react-redux';
+import { increment, decrement } from './actions';
 
 function Simple() {
   return <p>Simple composant fonctionnel</p>
@@ -44,9 +47,22 @@ function App() {
   const isOk = 2 > 1;
   const visibility = 'hidden';
 
+  const counter = useSelector(state => state.counter);
+  const login = useSelector(state => state.login);
+  const dispatch = useDispatch();
+
   return (
     <div>
       <h1>{ title } : { subtitle }</h1>
+
+      <h2>Counter: {counter}</h2>
+      <button onClick={() => dispatch(increment(2))}>+</button>
+      <button onClick={() => dispatch(decrement())}>-</button>
+      <div>
+        {login ? 'Je suis logué' : 'Pas logué'}
+      </div>
+
+      <DemoEffect />
 
       <ProductList/>
     

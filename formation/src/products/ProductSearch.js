@@ -1,8 +1,7 @@
-import React from "react"
+import React, {createRef} from "react"
 
-export default class FilterProduct extends React.Component
+export default class ProductSearch extends React.Component
 {
-    state = { search: '' }
 
     constructor(props) {
         super(props);
@@ -10,28 +9,28 @@ export default class FilterProduct extends React.Component
         // explicit this binding
         this.handleInput = this.handleInput.bind(this);
         this.clearInput = this.clearInput.bind(this);
+
+        this.searchRef = createRef();
     }
 
     handleInput(event) {
         var searchedValue = event.target.value;
         this.props.onSearch(searchedValue);
-        this.setState({search: searchedValue})
     }
 
     clearInput() {
-        this.setState({search: ''})
         this.props.onSearch('');
+        this.searchRef.current.value = '';
     }
 
     render() {
         return (
             <div style={{ margin: 20 }}>
-                <input 
+                <input
+                    ref={this.searchRef}
                     style={{ width: 200 }}
-                    value={this.state.search}
                     type="text"
-                    //onKeyUp={this.handleInput} 
-                    onChange={this.handleInput}
+                    onKeyUp={this.handleInput} 
                     />
                 <span onClick={this.clearInput}>X</span>
             </div>

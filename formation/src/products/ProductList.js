@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductItem from './ProductItem';
 import FilterProduct from './FilterProduct';
+import ProductSearch from './ProductSearch';
 
 const API = 'http://localhost:3005/products';
 
@@ -19,11 +20,9 @@ export default class ProductList extends React.Component
     componentDidMount() {
 
         // var promise = fetch(API);
-        // promise
-        // .then((response) => {
+        // promise.then((response) => {
         //     return response.json()
-        // })
-        // .then(products => console.log(products))
+        // }).then(products => console.log(products))
 
         fetch(API)
             .then(res => res.json())
@@ -34,6 +33,16 @@ export default class ProductList extends React.Component
                 })
             })
 
+    }
+
+    // componentDidUpdate() {
+    //     console.log('ProductList => update')
+    // }
+
+    componentWillUnmount() {
+        console.log('ProductList => Unmount');
+
+        // Use case : clearInterval
     }
 
     handleFilter(searchedValue) { 
@@ -64,7 +73,8 @@ export default class ProductList extends React.Component
 
         return (
             <>
-                <FilterProduct onSearch={this.handleFilter}  />
+                {/* <FilterProduct onSearch={this.handleFilter}  /> */}
+                <ProductSearch onSearch={this.handleFilter} />
                 {products}
             </>
         )

@@ -1,4 +1,5 @@
 import './ProductItem.css';
+import StockLevel from './StockLevel';
 
 export default function ProductItem({data}) {
 
@@ -12,7 +13,10 @@ export default function ProductItem({data}) {
         <div className={'product'}>
             <h3>{name}</h3>
             <p>prix : {price}</p>
-            <p>{onlineMsg}</p>
+            <div>
+                {onlineMsg}
+                <StockLevel stock={stock}/>
+            </div>
         </div>
     )
 }
